@@ -10,7 +10,7 @@ COPY . .
 ENV VUE_APP_CHAT_URL=http://localhost:4099
 RUN npm run build
 
-FROM nginx:stable-perl
+FROM nginx:1.25.1-perl
 RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/conf.d
 COPY --from=builder /app/dist /usr/share/nginx/html
